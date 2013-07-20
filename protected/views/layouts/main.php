@@ -11,9 +11,10 @@
         Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . '/css/main.css');
         Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . '/css/form.css');
         Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . '/css/datetimepicker.css');
-        
-        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/js/jquery-2.0.3.min.js');
-        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/js/jquery-ui.js');
+
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/jquery-2.0.3.min.js');
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/jquery-ui.js');
+        Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/jquery.autosize-min.js');
         ?>
         <title><?php echo CHtml::encode($this->pageTitle); ?></title>
     </head>
@@ -29,7 +30,7 @@
                         'collapse' => true, // requires bootstrap-responsive.css
                         'items' => array(
                             array(
-                                'class' => 'bootstrap.widgets.TbMenu',                                
+                                'class' => 'bootstrap.widgets.TbMenu',
                             ),
                             array(
                                 'class' => 'bootstrap.widgets.TbMenu',
@@ -112,5 +113,5 @@
             </div>                        
         </div><!-- page -->        
     </body>
-    
+
 </html>

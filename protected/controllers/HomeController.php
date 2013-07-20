@@ -4,7 +4,8 @@ class HomeController extends Controller
 {
     public function actionIndex()
     {
-        $this->render('index');
+        $polls = Poll::model()->findAll();
+        $this->render('index', array('polls' => $polls));
     }
     
 }
