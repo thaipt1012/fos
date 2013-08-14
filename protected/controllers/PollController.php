@@ -123,6 +123,8 @@ class PollController extends Controller
         $poll = new Poll;
         if (isset($_POST['Poll'])) {
             $poll->attributes = $_POST['Poll'];
+            $poll->description = CHtml::encode($poll->description);
+            $poll->question = CHtml::encode($poll->question);
             $poll->user_id = Yii::app()->user->getId();
             if ($poll->poll_type == Poll::POLL_TYPE_SETTINGS_ANONYMOUS) {
                 $poll->result_detail_type = Poll::RESULT_DETAIL_SETTINGS_ONLY_PERCENTAGE;
@@ -130,8 +132,8 @@ class PollController extends Controller
             
             if (strtotime($poll->start_at) < time()) {
                 $poll->start_at = date('Y-m-d H:i:s', time());
-                if ((strtotime($poll->end_at) - strtotime($poll->start_at)) < 10) {
-                    $poll->end_at = date('Y-m-d H:i:s', strtotime($poll->start_at) + 10);
+                if ((strtotime($poll->end_at) - strtotime($poll->start_at)) < 600) {
+                    $poll->end_at = date('Y-m-d H:i:s', strtotime($poll->start_at) + 600);
                 }
             }
             
@@ -263,6 +265,8 @@ class PollController extends Controller
         if (isset($_POST['Poll'])) {
             $model->logChangedAttributes($_POST['Poll']);
             $model->attributes = $_POST['Poll'];
+            $poll->description = CHtml::encode($poll->description);
+            $poll->question = CHtml::encode($poll->question);
             if ($model->poll_type == Poll::POLL_TYPE_SETTINGS_ANONYMOUS) {
                 $model->result_detail_type = Poll::RESULT_DETAIL_SETTINGS_ONLY_PERCENTAGE;
             }

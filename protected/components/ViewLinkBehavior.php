@@ -29,7 +29,7 @@ class ViewLinkBehavior extends CBehavior
         $controller = "{$this->controller_name}/view";
         $id = $owner->id;
         return CHtml::link(
-            $text, 
+            CHtml::encode($text),
             Yii::app()->createUrl($controller, array('id' => $id)), 
             $htmlOptions
         );

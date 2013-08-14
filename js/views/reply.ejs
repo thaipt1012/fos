@@ -2,8 +2,9 @@
     <div class='user_comment'>
        <%= link_to(profile_name, 'index.php?r=profile/view&id='+profile_id)%>
     </div>
-    <%= content%>
-    <br/>
+    <div class="wrap_text">
+        <%= content%>
+    </div>    
     <div class="time_update">
         <i><span class="human-time" changed="1" created_at="<%=created_at%>" ><%= human_time %></span></i>
     </div>

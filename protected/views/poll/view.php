@@ -226,11 +226,11 @@ if ($poll->display_type == Poll::POLL_DISPLAY_SETTINGS_INVITED_ONLY && Yii::app(
         </tr>
         <tr class='even'>
             <th>Question</th>
-            <td><?php echo $poll->question ?></td>
+            <td><?php echo CHtml::encode($poll->question); ?></td>
         </tr>
         <tr class='odd'>
             <th>Description</th>
-            <td><?php echo $poll->description ?></td>
+            <td><?php echo CHtml::encode($poll->description); ?></td>
         </tr>
         </tbody>
     </table>

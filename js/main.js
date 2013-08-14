@@ -221,7 +221,7 @@ function createNotifyText(data) {
         } else if (commenters.length == 2) {
             notify_txt += '<b>' + commenters[0] + '</b> and <b>' + commenters[1] + '</b> wrote ' + total_cmt + ' comments ';
         } else if (commenters.length > 2) {
-            notify_txt += '<b>' + commenters[0] + '</b> and ' + (commenters.length - 1) + ' wrote ' + total_cmt + ' comments ';
+            notify_txt += '<b>' + commenters[0] + '</b> and ' + (commenters.length - 1) + ' others wrote ' + total_cmt + ' comments ';
         }
 
         if (inviter) {

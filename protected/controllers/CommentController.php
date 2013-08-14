@@ -23,6 +23,7 @@ class CommentController extends Controller
         $comment = new Comment;
         if (isset($_POST['comment_data']) ) {
             $comment->attributes = $_POST['comment_data'];
+            $comment->content = CHtml::encode($comment->content);
             $comment->user_id = $this->current_user->id;
             $poll = Poll::model()->findbyPk($_POST['comment_data']['poll_id']);
             $cancomment = $this->current_user->canViewPoll($poll);
@@ -47,6 +48,7 @@ class CommentController extends Controller
             $parent_comment = Comment::model()->findByPk($_POST['comment_data']['parent_id']);
             if ($parent_comment && $parent_comment->canBeReplied()) {
                 $comment->attributes = $_POST['comment_data'];
+                $comment->content = CHtml::encode($comment->content);
                 $comment->user_id = $this->current_user->id;
                 $poll = Poll::model()->findbyPk($_POST['comment_data']['poll_id']);
                 $cancomment = $this->current_user->canViewPoll($poll);

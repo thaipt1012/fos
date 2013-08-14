@@ -69,7 +69,7 @@ class ChoiceController extends Controller
                 $count = Choice::model()->count($criteria);
 
                 $model->poll_id = $_POST['poll_id'];
-                $model->content = $_POST['content_choice'];
+                $model->content = CHtml::encode($_POST['content_choice']);
                 if (!$model->save() || $count > 9) {
                     throw new CHttpException(500, 'Internal Server Error.');
                 } else {

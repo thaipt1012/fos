@@ -112,11 +112,13 @@ function addCommmentInputHandler(dom, reply) {
             dom.attr('rows', rows);
        }
        if(event.keyCode === 13 && !event.shiftKey) {
-            content = $(this).val();
-            poll_id = $('#comment-all').attr('data-poll-id');
-            parent_id = $(this).attr('data-parent_id');
-            addComment(poll_id, content, parent_id, reply);
-            $(this).val('');
+            content = $.trim($(this).val());
+            if (content !== "") {
+                poll_id = $('#comment-all').attr('data-poll-id');
+                parent_id = $(this).attr('data-parent_id');
+                addComment(poll_id, content, parent_id, reply);
+                $(this).val('');
+            }
        }
     });
 }

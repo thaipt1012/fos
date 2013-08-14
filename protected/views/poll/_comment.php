@@ -4,8 +4,8 @@
         <div class="row user_comment">
             <?php echo $comment->user->profile->createViewLink(); ?>
         </div>
-        <div class="row">
-            <?php echo $comment->content ?> <br>
+        <div class="row wrap_text">
+            <?php echo CHtml::encode($comment->content) ?> <br>
         </div>
         <div class="row">
             <?php $time_update = ' <i><span class="human-time" changed="1" created_at="' . $comment->updated_at . '">' . DateAndTime::humanReadableTime($comment->updated_at) . '</span></i>';?>
